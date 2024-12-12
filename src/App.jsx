@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 const App = () => {
-  const [cashIn, setCashIn] = useState([]);
-  const [cashOut, setCashOut] = useState([]);
+  const [cashIn, setCashIn] = useState(0);
+  const [cashOut, setCashOut] = useState(0);
   const [price, setPrice] = useState("");
   const [transactionType, setTransactionType] = useState("cashIn");
   const [category, setCategory] = useState("");
@@ -33,9 +33,10 @@ const App = () => {
     };
 
     if (transactionType === "cashIn") {
-      setCashIn(cashIn + value);
+     
+      setCashIn(parseInt(cashIn) + parseInt(value));
     } else {
-      setCashOut(cashOut + value);
+      setCashOut(parseInt(cashOut) + parseInt(value));
     }
 
     setTransactions([...transactions, newTransaction]);
